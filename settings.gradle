@@ -1,0 +1,5 @@
+rootProject.name = 'Calendar'
+include 'calendar-core'
+include 'calendar-api'
+include 'calendar-batch'
+
