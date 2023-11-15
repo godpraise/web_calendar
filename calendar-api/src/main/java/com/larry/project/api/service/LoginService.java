@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
+@Service //서비스 빈 등록
+@RequiredArgsConstructor //생성자 자동 생성
 public class LoginService {
 
     private final static String LOGIN_SESSION_KEY = "USER_ID";

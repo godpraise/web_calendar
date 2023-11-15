@@ -8,12 +8,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
-@Getter
-@Table(name = "engagements")
-@Entity
+@NoArgsConstructor //Parameter가 없는 기본 생성자 생성
+@Getter //Getter 메서드 자동 생성
+@Table(name = "engagements") //해당 Entity가 mapping되는 DataBase Table의 이름을 지정
+@Entity //해당 Class가 JPA Entity임을 나타냄
 public class Engagement extends BaseEntity{
 
+    //schedule 필드에 대한 mapping 지정
+    //schedule_id Column을 참조하고, Schedule Entity와 다대일(N:1) 관계 형성
     @JoinColumn(name = "schedule_id")
     @ManyToOne
     private Schedule schedule;

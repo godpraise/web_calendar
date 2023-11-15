@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
-@Getter
+@NoArgsConstructor //Parameter가 없는 기본 생성자 자동 생성
+@Getter //Getter 메서드 자동 생성
 public class Notification {
 
     private Schedule schedule;

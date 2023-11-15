@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.larry.project.core.util.BCryptEncryptorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-11-15T16:15:22" hostname="HHYUKK" time="0.237">
+  <properties/>
+  <testcase name="test()" classname="com.larry.project.core.util.BCryptEncryptorTest" time="0.237"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
