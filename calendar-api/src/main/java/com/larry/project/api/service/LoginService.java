@@ -16,7 +16,7 @@ import java.util.Optional;
 @RequiredArgsConstructor //생성자 자동 생성
 public class LoginService {
 
-    private final static String LOGIN_SESSION_KEY = "USER_ID";
+    public final static String LOGIN_SESSION_KEY = "USER_ID";
     private final UserService userService;
 
     @Transactional

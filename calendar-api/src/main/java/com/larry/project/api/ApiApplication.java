@@ -16,7 +16,7 @@ import java.util.List;
 @EntityScan("com.larry.project.core") //.core 패키지 안에서 JPA Entity를 찾도록 설정
 @EnableJpaRepositories("com.larry.project.core") //JPA Repository의 위치를 지정
 @RestController //RESTful 웹 서비스의 Controller임을 나타냄
-@SpringBootApplication //Spring Boot 어플리케이션을 시작
+@SpringBootApplication(scanBasePackages = "com.larry.project") //Spring Boot 어플리케이션을 시작
 public class ApiApplication {
 
     private final SimpleEntityRepository repository;

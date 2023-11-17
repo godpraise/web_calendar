@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>My Calendar</title>
+    <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <style>
+        body {
+            background: #007bff;
+            background: linear-gradient(to right, rgb(0, 150, 230), rgb(48, 229, 242));
+        }
+
+        .btn-login {
+            font-size: 0.9rem;
+            letter-spacing: 0.05rem;
+            padding: 0.75rem 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5" id="signIn-form" style="display: none">
+                    <h5 class="card-title text-center mb-5 fw-light fs-4">Sign In</h5>
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="signIn-email"
+                                   placeholder="name@example.com">
+                            <label for="signIn-email">이메일</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="signIn-pw" placeholder="Password">
+                            <label for="signIn-pw">비밀번호</label>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
+                                in
+                            </button>
+                        </div>
+                        <hr class="my-4">
+                        <div class="d-flex justify-content-end">
+                            <a href="javascript:void(0);" onclick="viewSignUp()">가입하기</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body p-4 p-sm-5" id="signUp-form" style="display: none">
+                    <h5 class="card-title text-center mb-5 fw-light fs-4">Sign Up</h5>
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="signUp-name" placeholder="이름">
+                            <label for="signUp-name">이름</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="signUp-email"
+                                   placeholder="name@example.com">
+                            <label for="signUp-email">이메일</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="signUp-pw" placeholder="Password">
+                            <label for="signUp-pw">비밀번호</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="signUp-birthday" placeholder="2021-08-01">
+                            <label for="signUp-birthday">생년월일</label>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
+                                Up
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body p-4 p-sm-5" id="signOut-form" style="display: none">
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-login text-uppercase fw-bold" onclick="signOut()">Sign
+                            Out
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script th:inline="javascript" type="text/javascript">
+    //<![CDATA[
+
+    // 서버에서 전달받은 로그인 상태 여부
+    const isSignIn = [[${isSignIn}]];
+    // 서버에서 전달받은 리다이렉트 URL
+    const redirect = [[${redirect}]];
+
+    // HTML 폼 요소 선택
+    const signUpForm = document.getElementById("signUp-form");
+    const signInForm = document.getElementById("signIn-form");
+    const signOutForm = document.getElementById("signOut-form");
+
+    // 만약 사용자가 로그인되어 있다면
+    if (isSignIn) {
+        // 로그아웃 폼을 표시
+        signOutForm.style.display = 'inline-block';
+        // 리다이렉트 URL이 존재하면 해당 페이지로 이동
+        if (!!redirect) {
+            window.location.href = redirect;
+        }
+    } else {
+        // 로그인되어 있지 않다면 로그인 폼을 표시
+        signInForm.style.display = 'inline-block';
+    }
+
+    // 회원가입 폼을 보여주는 함수
+    function viewSignUp() {
+        signUpForm.style.display = 'inline-block';
+        signInForm.style.display = 'none';
+    }
+
+    // 회원가입 폼 제출 이벤트 리스너
+    signUpForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // 폼 제출을 막음
+        // axios를 사용하여 서버에 회원가입 요청 전송
+        axios.post("/api/sign-up", {
+            email: document.getElementById("signUp-email").value,
+            name: document.getElementById("signUp-name").value,
+            password: document.getElementById("signUp-pw").value,
+            birthday: document.getElementById("signUp-birthday").value
+        }).then((res) => {
+            console.log(res);
+            location.reload(); // 회원가입 성공 시 페이지 새로고침
+        }).catch((e) => {
+            alert(JSON.stringify(e.response));
+        });
+    });
+
+    // 로그인 폼 제출 이벤트 리스너
+    signInForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // 폼 제출을 막음
+        // axios를 사용하여 서버에 로그인 요청 전송
+        axios.post("/api/login", {
+            email: document.getElementById("signIn-email").value,
+            password: document.getElementById("signIn-pw").value
+        }).then((res) => {
+            console.log(res);
+            location.reload(); // 로그인 성공 시 페이지 새로고침
+        }).catch((e) => {
+            console.log(e);
+            alert(JSON.stringify(e.response));
+        });
+    });
+
+    // 로그아웃 함수
+    function signOut() {
+        // axios를 사용하여 서버에 로그아웃 요청 전송
+        axios.post("/api/logout").then((res) => {
+            console.log(res);
+            location.reload(); // 로그아웃 성공 시 페이지 새로고침
+        });
+    }
+
+    //]]>
+</script>
+
+</body>
+</html>
