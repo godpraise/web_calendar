@@ -1,4 +1,8 @@
-window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드되면 buildCalendar 실행
+window.onload = function () {
+    let currentMonth = today.getMonth() + 1; // 현재 월 가져오기 (0부터 시작하므로 1을 더해줍니다)
+    showCalendar(currentMonth); // 현재 월을 선택된 상태로 보여주기
+    buildCalendar();
+}    // 웹 페이지가 로드되면 buildCalendar 실행
 
 let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화
 let today = new Date();     // 페이지를 로드한 날짜를 저장
@@ -31,7 +35,7 @@ function buildCalendar() {
             }
             cell.classList.add("dateCell");  // "dateCell" class 추가
             cell.innerText = dateNum.toString();  // 날짜 표시
-            cell.addEventListener('click', function(e) {
+            cell.addEventListener('click', function() {
                 choiceDate(this);  // 날짜를 클릭하면 choiceDate 함수 호출
             });
             // 오늘 날짜를 표시
@@ -49,7 +53,11 @@ function choiceDate(cell) {
         choiceDay.classList.remove("choiceDay");// 해당 날짜의 "choiceDay" class 제거
         choiceDay.style.backgroundColor = "";     // 기존에 선택한 날짜의 배경 색 초기화
     }
-    cell.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
+    cell.classList.add("choiceDay");// 선택된 날짜에 "choiceDay" class 추가
+
+    // 선택한 날짜 정보를 쿼리 문자열로 만듭니다.
+    let selectedDate = cell.innerText + "일 " + document.querySelector('.selectedMonth').innerText + " " + document.getElementById("calYear").innerText + "년";
+    window.location.href = "timeCalendar.html?date=" + selectedDate;
 }
 
 document.getElementById("months").addEventListener("click", function(e) {
@@ -58,8 +66,6 @@ document.getElementById("months").addEventListener("click", function(e) {
         buildCalendar();    // 달력 다시 생성
     }
 });
-// 년도가 선택되었는지 나타내는 변수
-let yearSelected = false;
 
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("prevYear").addEventListener("click", function () {

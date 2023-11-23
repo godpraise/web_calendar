@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#timeTable {
+    width: 100%;
+}
+
+.timeSlot {
+    width: 20%;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.eventSlot {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid black;
+}
