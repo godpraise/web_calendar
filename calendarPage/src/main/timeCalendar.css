@@ -54,8 +54,8 @@ body {
 }
 
 #eventFormWrapper {
-    width: 30%;
-    height: 500px;
+    width: 500px;
+    height: 450px;
     overflow: auto;
     border-radius: 10px;
     background-color: #F0F0F0;
@@ -79,10 +79,16 @@ body {
 }
 
 #eventDisplay {
+    width: 500px;
+    height: 450px;
+    overflow: auto;
+    border-radius: 10px;
+    background-color: #F0F0F0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    justify-content: center;
+    padding: 20px;
 }
 
 #eventDisplayTitle {
@@ -92,4 +98,25 @@ body {
 
 #eventDisplayContent {
     margin-top: 10px;
+}
+
+.eventDisplayItem {
+    margin: 10px 0;
+}
+
+.eventDisplayLabel {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#eventForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dateTitleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

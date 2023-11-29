@@ -33,28 +33,52 @@ window.onload = function() {
     }
 };
 
+var selectedEventSlot = null;
 function showEventForm(rowId) {
     var eventFormWrapper = document.getElementById("eventFormWrapper");
     eventFormWrapper.style.display = "block";
-    eventFormWrapper.dataset.rowId = rowId;
 
     var eventDisplay = document.getElementById("eventDisplay");
     eventDisplay.style.display = "none";
 }
 
+document.getElementById("addEventButton").addEventListener("click", function() {
+    showEventForm();
+});
+
 function addEvent() {
     var eventFormWrapper = document.getElementById("eventFormWrapper");
-    var rowId = eventFormWrapper.dataset.rowId;
+    var startRowId = parseInt(eventFormWrapper.dataset.rowId.slice(3));
+    var endRowId = document.getElementById("endTime").value;
     var eventTitle = document.getElementById("eventTitle").value;
     var eventContent = document.getElementById("eventContent").value;
 
-    var eventSlot = document.getElementById(rowId).getElementsByClassName("eventSlot")[0];
-    eventSlot.textContent = eventTitle;
-    eventSlot.dataset.event = JSON.stringify({ title: eventTitle, content: eventContent }); // event data를 저장합니다.
+    for (var i = startRowId; i <= endRowId; i++) {
+        var eventSlot = document.getElementById(`row${i}`).getElementsByClassName("eventSlot")[0];
+        eventSlot.textContent = eventTitle;
+        eventSlot.dataset.event = JSON.stringify({ title: eventTitle, content: eventContent });
+    }
 
+    resetForm();
+}
+
+function resetForm() {
+    var eventFormWrapper = document.getElementById("eventFormWrapper");
     eventFormWrapper.style.display = "none";
     document.getElementById("eventTitle").value = "";
     document.getElementById("eventContent").value = "";
+    document.getElementById("startTime").value = "";
+    document.getElementById("endTime").value = "";
+}
+
+function deleteEvent() {
+    if (selectedEventSlot) {
+        selectedEventSlot.textContent = "";
+        selectedEventSlot.dataset.event = "";
+
+        var eventDisplay = document.getElementById("eventDisplay");
+        eventDisplay.style.display = "none";
+    }
 }
 
 function showEvent(event) {
