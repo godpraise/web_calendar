@@ -34,7 +34,7 @@ window.onload = function() {
 };
 
 var selectedEventSlot = null;
-function showEventForm(rowId) {
+function showEventForm() {
     var eventFormWrapper = document.getElementById("eventFormWrapper");
     eventFormWrapper.style.display = "block";
 
@@ -48,7 +48,7 @@ document.getElementById("addEventButton").addEventListener("click", function() {
 
 function addEvent() {
     var eventFormWrapper = document.getElementById("eventFormWrapper");
-    var startRowId = parseInt(eventFormWrapper.dataset.rowId.slice(3));
+    var startRowId = document.getElementById("startTime").value;
     var endRowId = document.getElementById("endTime").value;
     var eventTitle = document.getElementById("eventTitle").value;
     var eventContent = document.getElementById("eventContent").value;

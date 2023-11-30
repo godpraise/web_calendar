@@ -120,3 +120,8 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+#addEventButton,
+#deleteEventButton {
+    margin-left: 10px;
+}
