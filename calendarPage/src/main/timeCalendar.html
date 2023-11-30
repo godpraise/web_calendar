@@ -26,6 +26,13 @@
                         <span class="close">&times;</span>
                         <label for="eventTitle">제목:</label>
                         <input type="text" id="eventTitle" name="eventTitle">
+                        <label for="eventCategory">카테고리:</label>
+                        <select id="eventCategory" name="eventCategory">
+                            <option value="공부">공부</option>
+                            <option value="게임">게임</option>
+                            <option value="동아리">동아리</option>
+                            <option value="회의">회의</option>
+                        </select>
                         <label for="eventContent">내용:</label>
                         <textarea id="eventContent" name="eventContent"></textarea>
                         <label for="startTime">시작 시간:</label>
@@ -48,7 +55,10 @@
                 <span id="eventDisplayContent"></span>
             </div>
         </div>
-        <div id="eventListWrapper" style="display: none;"></div>
+        <div id="wrapper">
+            <div id="eventListWrapper" style="display: none;"></div>
+        </div>
+        <div id="eventDetailsWrapper" style="display: none;"></div>
     </div>
 </div>
     <script src="timeCalendar.js"></script>

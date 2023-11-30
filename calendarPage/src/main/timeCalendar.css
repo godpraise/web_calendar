@@ -186,3 +186,63 @@ body {
     width: 40px;
     height: 40px;
 }
+
+#eventDetailsWrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+#eventDetailsWrapper h2 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#eventDetailsWrapper p {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+#eventDetailsWrapper button {
+    display: block;
+    margin: 0 auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+}
+
+#eventListWrapper div {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#eventListWrapper div:hover {
+    background-color: #e8e8e8;
+}
+
+#eventListWrapper div p {
+    margin: 0;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+#wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
