@@ -1,0 +1,248 @@
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color : skyblue;
+}
+
+#mainWrapper {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+#scrollableTableWrapper {
+    height: 600px; /* 높이 늘리기 */
+    width: 800px; /* 너비 늘리기 */
+    border-radius: 15px; /* 라운드 코너 추가 */
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+
+#scrollableTable {
+    height: 100%;
+    overflow-y: auto;
+    background-color: #ecf0f1; /* 배경 색 변경 */
+    margin: 0 auto;
+    padding-right: 0;
+}
+
+#dateTitle {
+    text-align: center;
+    color: black;
+    font-size: 30px; /* 글자 크기 키우기 */
+    flex-grow: 2; /* 남은 공간을 최대한 확장 */
+}
+
+#timeTable {
+    width: 100%;
+    background-color: #fff; /* 배경 색 변경 */
+    border-radius: 15px; /* 라운드 코너 추가 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+.timeSlot {
+    width: 20%;
+    padding: 15px; /* 여백 조절 */
+    border: 1px solid skyblue; /* 테두리 색 변경 */
+    border-radius: 5px; /* 라운드 코너 추가 */
+    margin: 5px; /* 여백 추가 */
+    background-color: ivory; /* 배경 색 변경 */
+    color: skyblue; /* 글자색 변경 */
+}
+
+.eventSlot {
+    width: 80%;
+    padding: 15px; /* 여백 조절 */
+    border: 1px solid skyblue; /* 테두리 색 변경 */
+    border-radius: 5px; /* 라운드 코너 추가 */
+    margin: 5px; /* 여백 추가 */
+    background-color: #fff; /* 배경 색 변경 */
+    color: #333; /* 글자색 변경 */
+}
+
+#eventFormWrapper,
+#eventDisplay,
+#eventDetailsWrapper {
+    width: 500px; /* 너비 조절 */
+    height: 90%; /* 높이 조절 */
+    overflow: auto;
+    border-radius: 15px; /* 라운드 코너 추가 */
+    background-color: #D8EDE7; /* 배경 색 변경 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+
+#eventFormWrapper label,
+#eventFormWrapper input,
+#eventFormWrapper textarea {
+    display: block;
+    margin-bottom: 15px; /* 여백 조절 */
+}
+
+#eventFormWrapper textarea {
+    width: 100%;
+    height: 120px; /* 높이 조절 */
+}
+
+#eventDisplayTitle {
+    font-size: 24px; /* 글자 크기 키우기 */
+    font-weight: bold;
+    color: skyblue; /* 글자색 변경 */
+}
+
+#eventDisplayContent {
+    margin-top: 10px;
+}
+
+.eventDisplayItem {
+    margin: 10px 0;
+}
+
+.eventDisplayLabel {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#eventForm,
+#eventListWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dateTitleWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#addEventButton,
+#editEventButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#addEventButton img,
+#editEventButton img {
+    width: 40px;
+    height: 40px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #D8EDE7;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 35%;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#editEventButton img {
+    width: 30px;
+    height: 30px;
+}
+
+#eventDetailsWrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; /* 너비 조절 */
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+#eventDetailsWrapper h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px; /* 글자 크기 키우기 */
+    font-weight: bold;
+}
+
+#eventDetailsWrapper p {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+#eventDetailsWrapper button {
+    display: block;
+    margin: 0 auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+}
+
+#eventListWrapper div {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #D8EDE7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#eventListWrapper div:hover {
+    background-color: skyblue;
+}
+
+#eventListWrapper div p {
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+}
+
+#wrapper {
+    background-color: ivory;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
