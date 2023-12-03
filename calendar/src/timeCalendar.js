@@ -233,16 +233,6 @@ function resetForm() {
     document.getElementById("endTime").value = "";
 }
 
-/*function deleteEvent() {
-    if (selectedEventSlot) {
-        selectedEventSlot.textContent = "";
-        selectedEventSlot.dataset.event = "";
-
-        var eventDisplay = document.getElementById("eventDisplay");
-        eventDisplay.style.display = "none";
-    }
-}*/
-
 // 이벤트 디스플레이를 닫는 이벤트 핸들러
 document.querySelector(".eventClose").addEventListener("click", function() {
     document.getElementById("eventDisplay").style.display = "none";

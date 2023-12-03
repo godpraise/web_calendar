@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3440e414-646e-4928-a186-280b27294133" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/calendar/src/return.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/src/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/src/calendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/src/calendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/src/calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/plus-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/src/plus-icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/src/timeCalendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/src/timeCalendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/timeCalendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/src/timeCalendar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/src/timeCalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/src/timeCalendar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,7 +119,7 @@
       <workItem from="1701503938360" duration="4669000" />
       <workItem from="1701512167777" duration="3594000" />
       <workItem from="1701518078058" duration="4404000" />
-      <workItem from="1701588896756" duration="14366000" />
+      <workItem from="1701588896756" duration="15717000" />
     </task>
     <servers />
   </component>
