@@ -1,248 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Gasoek+One&family=Iceland&display=swap');
+
+/* 전체 페이지 스타일 */
 body {
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color : skyblue;
+    font-family: 'Cute Font', sans-serif; /* 폰트 설정 */
+    font-size: 25px; /* 폰트 크기 설정 */
+    text-align: center; /* 가운데 정렬 */
+    display: flex; /* 요소를 수평으로 배치 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    height: 100vh; /* 뷰포트 높이만큼 설정 */
+    margin: 0; /* 바깥 여백 초기화 */
+    padding: 0; /* 안쪽 여백 초기화 */
+    background-color: #D8EDE7; /* 배경색 설정 */
 }
 
+/* 메인 래퍼 스타일 */
 #mainWrapper {
-    display: flex;
-    justify-content: center;
-    width: 90%;
+    display: flex; /* 요소를 수평으로 배치 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    width: 90%; /* 너비 설정 */
 }
 
+/* 스크롤 가능한 테이블 래퍼 스타일 */
 #scrollableTableWrapper {
-    height: 600px; /* 높이 늘리기 */
-    width: 800px; /* 너비 늘리기 */
-    border-radius: 15px; /* 라운드 코너 추가 */
-    overflow: hidden;
+    height: 600px; /* 높이 설정 */
+    width: 800px; /* 너비 설정 */
+    border-radius: 15px; /* 모서리 둥글게 설정 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
 }
 
+/* 스크롤 가능한 테이블 스타일 */
 #scrollableTable {
-    height: 100%;
-    overflow-y: auto;
-    background-color: #ecf0f1; /* 배경 색 변경 */
-    margin: 0 auto;
-    padding-right: 0;
+    height: 100%; /* 높이 설정 */
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    background-color: #ecf0f1; /* 배경색 설정 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding-right: 0; /* 오른쪽 여백 초기화 */
 }
 
+/* 날짜 제목 스타일 */
 #dateTitle {
-    text-align: center;
-    color: black;
-    font-size: 30px; /* 글자 크기 키우기 */
-    flex-grow: 2; /* 남은 공간을 최대한 확장 */
+    text-align: center; /* 가운데 정렬 */
+    color: black; /* 글자색 설정 */
+    font-size: 40px; /* 폰트 크기 설정 */
+    flex-grow: 2; /* 확장 가능한 크기 설정 */
 }
 
+/* 시간표 테이블 스타일 */
 #timeTable {
-    width: 100%;
-    background-color: #fff; /* 배경 색 변경 */
-    border-radius: 15px; /* 라운드 코너 추가 */
+    width: 100%; /* 너비 설정 */
+    background-color: #fff; /* 배경색 설정 */
+    border-radius: 15px; /* 모서리 둥글게 설정 */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
 }
 
+/* 시간 슬롯 스타일 */
 .timeSlot {
-    width: 20%;
-    padding: 15px; /* 여백 조절 */
-    border: 1px solid skyblue; /* 테두리 색 변경 */
-    border-radius: 5px; /* 라운드 코너 추가 */
-    margin: 5px; /* 여백 추가 */
-    background-color: ivory; /* 배경 색 변경 */
-    color: skyblue; /* 글자색 변경 */
+    width: 20%; /* 너비 설정 */
+    padding: 15px; /* 패딩 설정 */
+    border: 1px solid skyblue; /* 테두리 색 설정 */
+    border-radius: 5px; /* 모서리 둥글게 설정 */
+    margin: 5px; /* 마진 설정 */
+    background-color: ivory; /* 배경색 설정 */
+    color: skyblue; /* 글자색 설정 */
 }
 
+/* 이벤트 슬롯 스타일 */
 .eventSlot {
-    width: 80%;
-    padding: 15px; /* 여백 조절 */
-    border: 1px solid skyblue; /* 테두리 색 변경 */
-    border-radius: 5px; /* 라운드 코너 추가 */
-    margin: 5px; /* 여백 추가 */
-    background-color: #fff; /* 배경 색 변경 */
-    color: #333; /* 글자색 변경 */
+    width: 80%; /* 너비 설정 */
+    padding: 15px; /* 패딩 설정 */
+    border: 1px solid skyblue; /* 테두리 색 설정 */
+    border-radius: 5px; /* 모서리 둥글게 설정 */
+    margin: 5px; /* 마진 설정 */
+    background-color: #fff; /* 배경색 설정 */
+    color: #333; /* 글자색 설정 */
 }
 
-#eventFormWrapper,
-#eventDisplay,
-#eventDetailsWrapper {
-    width: 500px; /* 너비 조절 */
-    height: 90%; /* 높이 조절 */
-    overflow: auto;
-    border-radius: 15px; /* 라운드 코너 추가 */
-    background-color: #D8EDE7; /* 배경 색 변경 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+/* 이벤트 래퍼 스타일 */
+#eventWrapper {
+    width: 500px; /* 너비 설정 */
+    height: 560px; /* 높이 설정 */
+    overflow: auto; /* 스크롤 활성화 */
+    border-radius: 15px; /* 모서리 둥글게 설정 */
+    background-color: #D8EDE7; /* 배경색 설정 */
+    display: flex; /* 요소를 수평으로 배치 */
+    flex-direction: column; /* 수직 방향으로 컬럼 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    padding: 20px; /* 패딩 설정 */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
 }
 
+/* 이벤트 폼 래퍼 스타일 */
+#eventFormWrapper {
+    display: none; /* 숨김 */
+}
+
+/* 이벤트 디스플레이 스타일 */
+#eventDisplay {
+    display: none; /* 숨김 */
+    background-color: ivory; /* 배경색 설정 */
+    position: relative; /* 상대 위치 설정 */
+    width: 400px; /* 너비 설정 */
+}
+
+/* 이벤트 폼 스타일 */
 #eventFormWrapper label,
 #eventFormWrapper input,
 #eventFormWrapper textarea {
-    display: block;
-    margin-bottom: 15px; /* 여백 조절 */
+    display: block; /* 블록 레벨로 설정 */
+    margin-bottom: 15px; /* 하단 마진 설정 */
 }
 
 #eventFormWrapper textarea {
-    width: 100%;
-    height: 120px; /* 높이 조절 */
+    width: 100%; /* 너비 설정 */
+    height: 120px; /* 높이 설정 */
 }
 
+/* 이벤트 디스플레이 제목 스타일 */
 #eventDisplayTitle {
-    font-size: 24px; /* 글자 크기 키우기 */
-    font-weight: bold;
-    color: skyblue; /* 글자색 변경 */
+    font-size: 50px; /* 폰트 크기 설정 */
+    font-weight: bold; /* 굵은 글꼴 설정 */
+    color: skyblue; /* 글자색 설정 */
 }
 
+/* 이벤트 디스플레이 내용 스타일 */
 #eventDisplayContent {
-    margin-top: 10px;
+    margin-top: 10px; /* 상단 마진 설정 */
 }
 
+/* 이벤트 디스플레이 항목 스타일 */
 .eventDisplayItem {
-    margin: 10px 0;
+    margin: 10px 0; /* 마진 설정 */
 }
 
 .eventDisplayLabel {
-    font-weight: bold;
-    margin-right: 10px;
+    font-weight: bold; /* 굵은 글꼴 설정 */
+    margin-right: 10px; /* 우측 마진 설정 */
 }
 
+/* 이벤트 폼, 이벤트 리스트 래퍼 스타일 */
 #eventForm,
 #eventListWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex; /* 요소를 수평으로 배치 */
+    flex-direction: column; /* 수직 방향으로 컬럼 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
 }
 
+/* 날짜 제목 래퍼 스타일 */
 #dateTitleWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+    display: flex; /* 요소를 수평으로 배치 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    background-color: ivory; /* 배경색 설정 */
 }
 
+/* 이벤트 추가 버튼, 이벤트 편집 버튼 스타일 */
 #addEventButton,
 #editEventButton {
-    border: none;
-    background: none;
-    cursor: pointer;
+    border: none; /* 테두리 없음 */
+    background: none; /* 배경 없음 */
+    cursor: pointer; /* 포인터 모양으로 변경 */
 }
 
-#addEventButton img,
-#editEventButton img {
-    width: 40px;
-    height: 40px;
+/* 이벤트 추가 버튼 스타일 */
+#addEventButton img{
+    width: 40px; /* 너비 설정 */
+    height: 40px; /* 높이 설정 */
 }
 
+/* 이벤트 편집 버튼 스타일 */
+#editEventButton img{
+    width: 42px; /* 너비 설정 */
+    height: 42px; /* 높이 설정 */
+}
+
+/* 모달 창 스타일 */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    display: none; /* 숨김 */
+    position: fixed; /* 고정 위치 설정 */
+    z-index: 1; /* Z축 순서 설정 */
+    left: 0; /* 좌측 정렬 */
+    top: 0; /* 상단 정렬 */
+    width: 100%; /* 너비 설정 */
+    height: 100%; /* 높이 설정 */
+    overflow: auto; /* 스크롤 활성화 */
+    background-color: rgba(0,0,0,0.4); /* 배경색 및 투명도 설정 */
 }
 
 .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #D8EDE7;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 35%;
+    position: absolute; /* 상대 위치 설정 */
+    top: 50%; /* 상단 중앙 정렬 */
+    left: 50%; /* 좌측 중앙 정렬 */
+    transform: translate(-50%, -50%); /* 50% 이동 및 중앙 정렬 */
+    background-color: #c5e6dc; /* 배경색 설정 */
+    padding: 15px; /* 패딩 설정 */
+    border-radius: 10px; /* 모서리 둥글게 설정 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 추가 */
+    width: 35%; /* 너비 설정 */
 }
 
+/* 닫기 버튼 스타일 */
 .close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
+    position: absolute; /* 상대 위치 설정 */
+    top: 10px; /* 상단 여백 설정 */
+    right: 15px; /* 우측 여백 설정 */
+    color: #000; /* 글자색 설정 */
+    font-size: 35px; /* 폰트 크기 설정 */
+    font-weight: bold; /* 굵은 글꼴 설정 */
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    color: black; /* 호버 및 포커스 시 글자색 변경 */
+    text-decoration: none; /* 밑줄 제거 */
+    cursor: pointer; /* 포인터 모양으로 변경 */
 }
 
-#editEventButton img {
-    width: 30px;
-    height: 30px;
-}
-
+/* 이벤트 상세 정보 래퍼 스타일 */
 #eventDetailsWrapper {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px; /* 너비 조절 */
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #000;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    z-index: 100;
+    display: none; /* 숨김 */
+    position: fixed; /* 고정 위치 설정 */
+    top: 50%; /* 상단 중앙 정렬 */
+    left: 50%; /* 좌측 중앙 정렬 */
+    transform: translate(-50%, -50%); /* 50% 이동 및 중앙 정렬 */
+    width: 400px; /* 너비 설정 */
+    height: 300px; /* 높이 설정 */
+    padding: 20px; /* 패딩 설정 */
+    background-color: ivory; /* 배경색 설정 */
+    border: 1px solid #000; /* 테두리 설정 */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* 그림자 추가 */
+    z-index: 100; /* Z축 순서 설정 */
 }
 
 #eventDetailsWrapper h2 {
-    margin: 0 0 10px 0;
-    font-size: 24px; /* 글자 크기 키우기 */
-    font-weight: bold;
+    margin: 0 0 10px 0; /* 마진 설정 */
+    font-size: 50px; /* 폰트 크기 설정 */
+    font-weight: bold; /* 굵은 글꼴 설정 */
 }
 
 #eventDetailsWrapper p {
-    margin: 0 0 10px 0;
-    font-size: 16px;
+    margin: 0 0 10px 0; /* 마진 설정 */
+    font-size: 30px; /* 폰트 크기 설정 */
 }
 
+/* eventDetailsWrapper 내의 버튼 스타일 */
 #eventDetailsWrapper button {
-    display: block;
-    margin: 0 auto;
-    padding: 5px 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #000;
-    border: none;
-    cursor: pointer;
+    display: block; /* 블록 요소로 표시 */
+    margin: 0 auto; /* 가운데 정렬을 위한 왼쪽과 오른쪽의 마진을 자동으로 조절 */
+    padding: 5px 10px; /* 안쪽 여백 설정 */
+    font-size: 16px; /* 폰트 크기 */
+    color: black; /* 글자 색상 */
+    background-color: #c5e6dc; /* 배경색 */
+    border: none; /* 테두리 없음 */
+    cursor: pointer; /* 커서 모양을 포인터로 변경하여 클릭 가능한 상태 표시 */
+    border-radius: 15px; /* 모서리를 둥글게 하는 효과 */
 }
 
+/* 이벤트 목록 래퍼 스타일 */
 #eventListWrapper div {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #D8EDE7;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
+    margin-bottom: 10px; /* 하단 마진 */
+    padding: 10px; /* 안쪽 여백 설정 */
+    background-color: #f5f5ce; /* 배경색 */
+    border: 1px solid #ddd; /* 테두리 설정 */
+    border-radius: 4px; /* 모서리를 둥글게 하는 효과 */
+    cursor: pointer; /* 커서 모양을 포인터로 변경하여 클릭 가능한 상태 표시 */
 }
 
+/* 이벤트 목록 래퍼에 호버 효과 */
 #eventListWrapper div:hover {
-    background-color: skyblue;
+    background-color: skyblue; /* 호버 상태일 때 배경색 변경 */
 }
 
+/* 이벤트 목록 래퍼 내 단락 스타일 */
 #eventListWrapper div p {
-    margin: 0;
-    font-size: 16px;
-    font-family: 'Arial', sans-serif;
+    margin: 0; /* 단락의 상단 및 하단 마진 제거 */
+    font-size: 16px; /* 폰트 크기 */
 }
 
+/* 전체 래퍼 스타일 */
 #wrapper {
-    background-color: ivory;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
+    display: none; /* 초기에는 화면에 표시하지 않음 */
+    background-color: ivory; /* 배경색 */
+    width: 100%; /* 전체 폭 사용 */
+    height: 100%; /* 전체 높이 사용 */
+    border-radius: 15px; /* 모서리를 둥글게 하는 효과 */
+}
+
+/* 이벤트 닫기 버튼 스타일 */
+.eventClose {
+    position: absolute; /* 위치를 절대값으로 설정 */
+    top: 0; /* 상단에 위치 */
+    right: 0; /* 우측에 위치 */
+    color: #000; /* 글자 색상 */
+    font-size: 35px; /* 폰트 크기 */
+    font-weight: bold; /* 굵은 글꼴 사용 */
+    cursor: pointer; /* 커서 모양을 포인터로 변경하여 클릭 가능한 상태 표시 */
+}
+
+/* 이벤트 내용 래퍼 스타일 */
+#contentWrapper {
+    background-color: white; /* 배경색 */
+}
+
+/* 달력으로 돌아가기 버튼 스타일 */
+#backToCalendar {
+    position: absolute; /* 위치를 절대값으로 설정 */
+    top: 10px; /* 상단에서 10px 아래에 위치 */
+    left: 10px; /* 좌측에서 10px 오른쪽에 위치 */
+}
+
+/* "달력으로 돌아가기" 버튼 내 이미지 스타일 */
+#backToCalendar img {
+    width: 30px; /* 이미지 폭 */
+    height: 30px; /* 이미지 높이 */
 }
